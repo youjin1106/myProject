@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 
 const RouteTest = () => {
   return (
-    <>
-      <Link to={"/"}>멘</Link>
-      <br />
-      <Link to={"/about"}>Abouttt</Link>
-    </>
+    <header>
+      <div>
+        <Link to={"/"}>To do list</Link>
+        <Link to={"/about"}>About</Link>
+      </div>
+    </header>
   );
 };
 

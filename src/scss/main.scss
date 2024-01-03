@@ -1,32 +1,55 @@
 @use "pages";
 @use "abstracts" as *;
 
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Roboto:ital,wght@0,500;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Nanum+Pen+Script&family=Roboto:ital,wght@0,500;0,700;1,400&display=swap");
 body {
   @include flex-center;
   background-color: $bg-color;
   font-size: 34px;
   font-family: "Roboto", sans-serif;
   font-family: "Nanum Pen Script";
-  margin: 40px;
 }
 
 #root {
-  background-color: $bg-list-color;
-  width: 700px;
+  width: 100%;
   @include flex-center;
   flex-direction: column;
 }
 
 button {
-  border: none;
-  border-radius: 5px;
+  // border: none;
+  // border-radius: 5px;
 
-  padding: 4px 10px;
-  margin: 4px;
-  color: $font-button-color;
-  background-color: $bg-button-color;
-  white-space: nowrap;
+  // padding: 4px 10px;
+  // margin: 4px;
+  // color: $font-button-color;
+  // background-color: $bg-button-color;
+  // white-space: nowrap;
 
   font-family: "Nanum Pen Script";
+
+  align-self: center;
+  background: transparent;
+  padding: 0.5rem 0.8rem;
+  margin: 0 0.4rem;
+  transition: all 0.5s ease;
+  color: #41403e;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  outline: none;
+  box-shadow: 20px 38px 34px -26px hsla(0, 0%, 0%, 0.2);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+header {
+  @include flex-center;
+
+  div {
+    margin: 20px;
+    a {
+      margin: 30px;
+      text-decoration-line: none;
+      color: $font-list-color;
+    }
+  }
 }

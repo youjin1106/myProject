@@ -41,19 +41,22 @@ const TodoItem = ({
   };
 
   return (
-    <div>
-      <input type="checkbox" checked={checked} onChange={handleCheck} />
-      <div>
-        {isEdit ? (
-          <textarea
-            value={localTitle}
-            onChange={(e) => setLocalTitle(e.target.value)}
-          />
-        ) : (
-          <div>{localTitle}</div>
-        )}
+    <li className="list-item">
+      <div className="item-title">
+        <input type="checkbox" checked={checked} onChange={handleCheck} />
+        <div>
+          {isEdit ? (
+            <textarea
+              className="item-edit"
+              value={localTitle}
+              onChange={(e) => setLocalTitle(e.target.value)}
+            />
+          ) : (
+            <div>{localTitle}</div>
+          )}
+        </div>
       </div>
-      <div>
+      <div className="item-btns">
         {isEdit ? (
           <>
             <button onClick={handleClickEdit}>수정 완료</button>
@@ -65,7 +68,7 @@ const TodoItem = ({
           </>
         )}
       </div>
-    </div>
+    </li>
   );
 };
 

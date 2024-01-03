@@ -18,15 +18,17 @@ const TodoEditor = ({ onCreate }) => {
   };
 
   return (
-    <div>
-      <div>할 일 작성</div>
+    <div className="editor-area">
       <textarea
+        className="editor-area__textarea"
         onChange={handleChangeState}
         value={state.title}
         placeholder="할 일 입력"
         name="title"
       />
-      <button onClick={handleSubmit}>추가</button>
+      <button className="submitBtn" onClick={handleSubmit}>
+        추가
+      </button>
     </div>
   );
 };

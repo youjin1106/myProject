@@ -77,14 +77,17 @@ const MainPage = () => {
   };
 
   return (
-    <div>
-      <TodoEditor onCreate={onCreate} />
-      <TodoList
-        todoList={data}
-        onRemove={onRemove}
-        onEdit={onEdit}
-        onRemoveCheckedAll={onRemoveCheckedAll}
-      />
+    <div className="main-page">
+      <div className="main-page__line-style">
+        <div className="main-page__line-style__title">To do list</div>
+        <TodoEditor onCreate={onCreate} />
+        <TodoList
+          todoList={data}
+          onRemove={onRemove}
+          onEdit={onEdit}
+          onRemoveCheckedAll={onRemoveCheckedAll}
+        />
+      </div>
     </div>
   );
 };
