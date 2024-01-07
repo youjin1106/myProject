@@ -83,6 +83,7 @@ const MainPage = () => {
         <TodoEditor onCreate={onCreate} />
         <TodoList
           todoList={data}
+          setTodoList={setData}
           onRemove={onRemove}
           onEdit={onEdit}
           onRemoveCheckedAll={onRemoveCheckedAll}
