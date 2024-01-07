@@ -1,6 +1,7 @@
 import { ReactSortable } from "react-sortablejs";
 import TodoItem from "./TodoItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Skeleton from "./Skeleton";
 
 const TodoList = ({
   todoList,
@@ -10,7 +11,6 @@ const TodoList = ({
   onRemoveCheckedAll,
 }) => {
   const [filter, setFilter] = useState("all");
-
   const allList = () => setFilter("all");
   const finishedList = () => setFilter("finished");
   const unfinishedList = () => setFilter("unfihished");
@@ -33,19 +33,21 @@ const TodoList = ({
 
   return (
     <div>
-      <button onClick={onRemoveCheckedAll}>완료 삭제</button>
       <button onClick={allList}>전체보기</button>
       <button onClick={unfinishedList}>미완료 보기</button>
       <button onClick={finishedList}>완료만 보기</button>
+      <button onClick={onRemoveCheckedAll}>완료 삭제</button>
+      {todoList.length === 0 && <Skeleton />}
       <ReactSortable
         tag="ul"
         list={todoList}
         setList={(newlist) => setTodoList(newlist)}
         className="list-container"
       >
-        {filteredList().map((it) => (
-          <TodoItem key={it.id} {...it} onRemove={onRemove} onEdit={onEdit} />
-        ))}
+        {filteredList &&
+          filteredList().map((it) => (
+            <TodoItem key={it.id} {...it} onRemove={onRemove} onEdit={onEdit} />
+          ))}
       </ReactSortable>
     </div>
   );

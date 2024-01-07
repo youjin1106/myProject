@@ -138,4 +138,14 @@ header div a {
   margin: 30px;
   text-decoration-line: none;
   color: #2d5d29;
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  width: 180px;
+  height: 30px;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: #d4deb9;
 }/*# sourceMappingURL=main.css.map */
