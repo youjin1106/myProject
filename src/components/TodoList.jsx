@@ -1,6 +1,6 @@
 import { ReactSortable } from "react-sortablejs";
 import TodoItem from "./TodoItem";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Skeleton from "./Skeleton";
 
 const TodoList = ({

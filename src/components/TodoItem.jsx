@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Modal from "./Modal";
 
 const TodoItem = ({
   id,
@@ -44,28 +45,29 @@ const TodoItem = ({
       <div className="item-title">
         <input type="checkbox" checked={checked} onChange={handleCheck} />
         <div>
-          {isEdit ? (
-            <textarea
-              className="item-edit"
-              value={localTitle}
-              onChange={(e) => setLocalTitle(e.target.value)}
-            />
-          ) : (
-            <div>{localTitle}</div>
+          {isEdit && (
+            <>
+              <div>
+                <Modal
+                  toggleIsEdit={toggleIsEdit}
+                  localTitle={localTitle}
+                  setLocalTitle={setLocalTitle}
+                  createdAt={createdAt}
+                  updatedAt={updatedAt}
+                  done={done}
+                  handleCheck={handleCheck}
+                  handleClickEdit={handleClickEdit}
+                  handleClickRemove={handleClickRemove}
+                />
+              </div>
+            </>
           )}
+          <div>{localTitle}</div>
         </div>
       </div>
       <div className="item-btns">
-        {isEdit ? (
-          <>
-            <button onClick={handleClickEdit}>수정 완료</button>
-          </>
-        ) : (
-          <>
-            <button onClick={toggleIsEdit}>수정</button>
-            <button onClick={handleClickRemove}>삭제</button>
-          </>
-        )}
+        <button onClick={toggleIsEdit}>수정</button>
+        <button onClick={handleClickRemove}>삭제</button>
       </div>
     </li>
   );

@@ -148,4 +148,62 @@ header div a {
   margin: 5px;
   border-radius: 10px;
   background-color: #d4deb9;
+}
+
+.list-modal {
+  width: 400px;
+  height: 180px;
+  border-radius: 12px;
+  background-color: #e6efc9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.list-modal-background {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.list-modal__info-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.list-modal__info-area__date {
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.list-modal__info-area__edit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-left: 90px;
+}
+.list-modal__info-area__textarea {
+  height: 28px;
+  font-family: "Nanum Pen Script";
+  font-size: 18px;
+  padding-top: 9px;
+  padding-left: 15px;
+  padding-right: 100px;
+  border: none;
+  resize: none;
+  background-color: #e6efc9;
+  padding-top: 9px;
+  padding-left: 15px;
+  padding-right: 0;
+}
+.list-modal__info-area__textarea:focus {
+  outline: none;
 }/*# sourceMappingURL=main.css.map */

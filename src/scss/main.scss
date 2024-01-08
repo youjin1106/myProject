@@ -63,3 +63,48 @@ header {
   border-radius: 10px;
   background-color: $bg-skeleton-color;
 }
+
+.list-modal {
+  width: 400px;
+  height: 180px;
+  border-radius: 12px;
+  background-color: $bg-list-color;
+  @include flex-center(column);
+  &-background {
+    @include flex-center;
+    position: fixed;
+    // top: 0;
+    // left: 0;
+    width: 100vw;
+    height: 100vh;
+    // background-color: red;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  &__info-area {
+    @include flex-center(column);
+
+    &__date {
+      font-size: 15px;
+      @include flex-center;
+    }
+
+    &__edit {
+      @include flex-center;
+      padding-left: 90px;
+    }
+
+    &__textarea {
+      @include textarea-style;
+      background-color: $bg-list-color;
+
+      padding: {
+        top: 9px;
+        left: 15px;
+        right: 0;
+      }
+    }
+  }
+  &__button-area {
+  }
+}
