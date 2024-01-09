@@ -9,6 +9,8 @@ const TodoItem = ({
   done,
   onRemove,
   onEdit,
+  bookmarkList,
+  setBookmarkList,
 }) => {
   const [checked, setChecked] = useState(done);
   const [isEdit, setIsEdit] = useState(false);
@@ -26,7 +28,6 @@ const TodoItem = ({
   };
 
   const handleCheck = (e) => {
-    console.log(title + e.target.checked);
     setChecked(e.target.checked);
     if (e.target.checked) {
       onEdit(id, localTitle, true);
@@ -38,6 +39,18 @@ const TodoItem = ({
     console.log(checked);
     //작동확인
     // onEdit(id, localTitle, checked);
+  };
+
+  const addBookmark = () => {
+    let newState = [];
+    console.log(bookmarkList);
+    bookmarkList
+      ? !bookmarkList.includes(title)
+        ? (newState = [...bookmarkList, title])
+        : (newState = bookmarkList)
+      : (newState = [title]);
+    localStorage.setItem("title", JSON.stringify(newState));
+    setBookmarkList(newState);
   };
 
   return (
@@ -66,6 +79,7 @@ const TodoItem = ({
         </div>
       </div>
       <div className="item-btns">
+        <button onClick={addBookmark}>즐찾</button>
         <button onClick={toggleIsEdit}>수정</button>
         <button onClick={handleClickRemove}>삭제</button>
       </div>

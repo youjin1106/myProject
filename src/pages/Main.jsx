@@ -7,9 +7,13 @@ import Todo, {
 } from "../api/Todo";
 import TodoList from "../components/TodoList";
 import TodoEditor from "../components/TodoEditor";
+import Bookmark from "../components/Bookmark";
+// import Weather from "../api/Weather";
 
 const MainPage = () => {
   const [data, setData] = useState([]);
+  const [bookmarkList, setBookmarkList] = useState();
+
   const getTodoList = async () => {
     const getData = await Todo();
     const initData = getData.map((it) => {
@@ -25,8 +29,14 @@ const MainPage = () => {
     setData(initData);
   };
 
+  const getBookmarkList = () => {
+    const res = JSON.parse(localStorage.getItem("title"));
+    setBookmarkList(res);
+  };
+
   useEffect(() => {
     getTodoList();
+    getBookmarkList();
   }, []);
 
   const onCreate = async (title) => {
@@ -80,6 +90,9 @@ const MainPage = () => {
     <div className="main-page">
       <div className="main-page__line-style">
         <div className="main-page__line-style__title">To do list</div>
+        <div className="main-page__line-style__moreTodo">
+          <button>즐겨찾기</button>
+        </div>
         <TodoEditor onCreate={onCreate} />
         <TodoList
           todoList={data}
@@ -87,8 +100,11 @@ const MainPage = () => {
           onRemove={onRemove}
           onEdit={onEdit}
           onRemoveCheckedAll={onRemoveCheckedAll}
+          bookmarkList={bookmarkList}
+          setBookmarkList={setBookmarkList}
         />
       </div>
+      <Bookmark bookmarkList={bookmarkList} setBookmarkList={setBookmarkList} />
     </div>
   );
 };

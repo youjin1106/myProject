@@ -25,6 +25,10 @@
   font-family: "Inter", sans-serif;
   padding-bottom: 50px;
 }
+.main-page__line-style__moreTodo {
+  display: flex;
+  padding-bottom: 10px;
+}
 
 .editor-area {
   display: flex;

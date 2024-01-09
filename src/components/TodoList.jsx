@@ -9,6 +9,8 @@ const TodoList = ({
   onRemove,
   onEdit,
   onRemoveCheckedAll,
+  bookmarkList,
+  setBookmarkList,
 }) => {
   const [filter, setFilter] = useState("all");
   const allList = () => setFilter("all");
@@ -46,7 +48,14 @@ const TodoList = ({
       >
         {filteredList &&
           filteredList().map((it) => (
-            <TodoItem key={it.id} {...it} onRemove={onRemove} onEdit={onEdit} />
+            <TodoItem
+              key={it.id}
+              {...it}
+              onRemove={onRemove}
+              onEdit={onEdit}
+              bookmarkList={bookmarkList}
+              setBookmarkList={setBookmarkList}
+            />
           ))}
       </ReactSortable>
     </div>
