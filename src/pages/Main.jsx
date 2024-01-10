@@ -8,11 +8,12 @@ import Todo, {
 import TodoList from "../components/TodoList";
 import TodoEditor from "../components/TodoEditor";
 import Bookmark from "../components/Bookmark";
-// import Weather from "../api/Weather";
 
 const MainPage = () => {
   const [data, setData] = useState([]);
   const [bookmarkList, setBookmarkList] = useState();
+  const [bookmarkModal, setBookmarkModal] = useState(false);
+  const toggleBookmark = () => setBookmarkModal(!bookmarkModal);
 
   const getTodoList = async () => {
     const getData = await Todo();
@@ -31,7 +32,9 @@ const MainPage = () => {
 
   const getBookmarkList = () => {
     const res = JSON.parse(localStorage.getItem("title"));
-    setBookmarkList(res);
+    let bookmarkArr = [];
+    if (res) bookmarkArr = res.split(",");
+    setBookmarkList(bookmarkArr);
   };
 
   useEffect(() => {
@@ -91,7 +94,7 @@ const MainPage = () => {
       <div className="main-page__line-style">
         <div className="main-page__line-style__title">To do list</div>
         <div className="main-page__line-style__moreTodo">
-          <button>즐겨찾기</button>
+          <button onClick={toggleBookmark}>즐겨찾기</button>
         </div>
         <TodoEditor onCreate={onCreate} />
         <TodoList
@@ -104,7 +107,14 @@ const MainPage = () => {
           setBookmarkList={setBookmarkList}
         />
       </div>
-      <Bookmark bookmarkList={bookmarkList} setBookmarkList={setBookmarkList} />
+      {bookmarkModal && (
+        <Bookmark
+          bookmarkList={bookmarkList}
+          setBookmarkList={setBookmarkList}
+          onCreate={onCreate}
+          toggleBookmark={toggleBookmark}
+        />
+      )}
     </div>
   );
 };

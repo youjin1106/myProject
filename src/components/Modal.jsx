@@ -36,8 +36,6 @@ const Modal = ({
     const [, month, date, year] = d;
     return year + " " + month + " " + date + " " + t;
   };
-  //작성날짜
-  // const createdTime = timeDataSet(createdAt);
 
   const updatedTime = latestEditTime
     ? timeDataSet(updatedAt)

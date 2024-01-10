@@ -41,16 +41,31 @@ const TodoItem = ({
     // onEdit(id, localTitle, checked);
   };
 
+  // const addBookmark = () => {
+  //   let newState = [];
+  //   console.log(bookmarkList);
+  //   bookmarkList
+  //     ? !bookmarkList.includes(title)
+  //       ? (newState = [...bookmarkList, title])
+  //       : (newState = bookmarkList)
+  //     : (newState = [title]);
+  //   localStorage.setItem("title", JSON.stringify(newState));
+  //   setBookmarkList(newState);
+  // };
+
   const addBookmark = () => {
-    let newState = [];
-    console.log(bookmarkList);
-    bookmarkList
-      ? !bookmarkList.includes(title)
-        ? (newState = [...bookmarkList, title])
-        : (newState = bookmarkList)
-      : (newState = [title]);
+    let newState = "";
+    const listString = bookmarkList.join(",");
+    console.log(bookmarkList.length);
+    bookmarkList.length !== 0
+      ? !bookmarkList.includes(title.trim())
+        ? (newState = listString + "," + title.trim())
+        : (newState = listString)
+      : (newState = title.trim());
+    console.log(bookmarkList.length);
     localStorage.setItem("title", JSON.stringify(newState));
-    setBookmarkList(newState);
+    const newArr = newState.split(",");
+    setBookmarkList(newArr);
   };
 
   return (
