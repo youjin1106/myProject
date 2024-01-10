@@ -1,1 +1,15 @@
 @use "../abstracts/" as *;
+
+.about-page {
+  @include flex-center(column);
+
+  h1 {
+    padding: 30px;
+  }
+  &__logo {
+    width: 330px;
+  }
+  &__intro-image {
+    width: 600px;
+  }
+}

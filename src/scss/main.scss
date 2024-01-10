@@ -5,6 +5,7 @@
 body {
   @include flex-center;
   background-color: $bg-color;
+  color: $font-list-color;
   font-size: 34px;
   font-family: "Roboto", sans-serif;
   font-family: "Nanum Pen Script";
