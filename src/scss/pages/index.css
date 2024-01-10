@@ -25,8 +25,6 @@
 }
 .main-page__line-style {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   color: #2d5d29;
   border: 3px solid #2d5d29;
   border-radius: 4px;
@@ -35,13 +33,13 @@
   padding-right: 15px;
   padding-bottom: 10px;
 }
-.main-page__line-style__title {
+.main-page__line-style__top__title {
   font-size: 50px;
   font-style: italic;
   font-family: "Inter", sans-serif;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
 }
-.main-page__line-style__moreTodo {
+.main-page__line-style__top__moreTodo {
   display: flex;
   padding-bottom: 10px;
 }
@@ -107,4 +105,14 @@
 }
 .list-item .item-edit:focus {
   outline: none;
+}
+
+@media all and (min-width: 480px) and (max-width: 767px) {
+  .main-page__line-style {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .main-page__line-style__top__title {
+    padding-bottom: 50px;
+  }
 }/*# sourceMappingURL=index.css.map */

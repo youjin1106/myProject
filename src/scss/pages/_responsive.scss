@@ -1,0 +1,17 @@
+@use "../abstracts/" as *;
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+}
+
+@media all and (min-width: 480px) and (max-width: 767px) {
+  .main-page__line-style {
+    flex-direction: column;
+    justify-content: space-between;
+    &__top__title {
+      padding-bottom: 50px;
+    }
+  }
+}
+
+@media all and (min-width: 320px) and (max-width: 479px) {
+}

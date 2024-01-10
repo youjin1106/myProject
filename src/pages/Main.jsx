@@ -92,11 +92,13 @@ const MainPage = () => {
   return (
     <div className="main-page">
       <div className="main-page__line-style">
-        <div className="main-page__line-style__title">To do list</div>
-        <div className="main-page__line-style__moreTodo">
-          <button onClick={toggleBookmark}>즐겨찾기</button>
+        <div className="main-page__line-style__top">
+          <div className="main-page__line-style__top__title">To do list</div>
+          <div className="main-page__line-style__top__moreTodo">
+            <button onClick={toggleBookmark}>즐겨찾기</button>
+          </div>
+          <TodoEditor onCreate={onCreate} />
         </div>
-        <TodoEditor onCreate={onCreate} />
         <TodoList
           todoList={data}
           setTodoList={setData}

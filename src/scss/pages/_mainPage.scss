@@ -17,8 +17,6 @@
 
   &__line-style {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     color: $font-list-color;
     border: 3px solid $font-list-color;
     border-radius: 4px;
@@ -28,17 +26,19 @@
       right: 15px;
       bottom: 10px;
     }
-    &__title {
-      font: {
-        size: 50px;
-        style: italic;
-        family: "Inter", sans-serif;
+    &__top {
+      &__title {
+        font: {
+          size: 50px;
+          style: italic;
+          family: "Inter", sans-serif;
+        }
+        padding-bottom: 100px;
       }
-      padding-bottom: 50px;
-    }
-    &__moreTodo {
-      display: flex;
-      padding-bottom: 10px;
+      &__moreTodo {
+        display: flex;
+        padding-bottom: 10px;
+      }
     }
   }
 }
@@ -77,9 +77,6 @@
     color: $bg-list-color;
     bottom: 2px solid;
   }
-
-  // input[type="checkbox"] {
-  // }
 
   .item-title {
     @include flex-center;
