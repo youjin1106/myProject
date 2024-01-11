@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useTodoStore } from "../store/Store";
 
-const TodoEditor = ({ onCreate }) => {
+const TodoEditor = () => {
+  const { onCreate } = useTodoStore();
   const [state, setState] = useState({
     title: "",
   });

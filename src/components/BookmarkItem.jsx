@@ -1,4 +1,7 @@
-const BookmarkItem = ({ title, onCreate, bookmarkList, setBookmarkList }) => {
+import { useTodoStore } from "../store/Store";
+
+const BookmarkItem = ({ title }) => {
+  const { onCreate, bookmarkList, setBookmarkList } = useTodoStore();
   const addTodoItem = () => {
     console.log(title);
     onCreate(title);

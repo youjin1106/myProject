@@ -1,21 +1,23 @@
 import { useState } from "react";
 import Modal from "./Modal";
+import { useTodoStore } from "../store/Store";
 
 const TodoItem = ({
   id,
   title,
-  createdAt,
+  // createdAt,
   updatedAt,
   done,
-  onRemove,
-  onEdit,
-  bookmarkList,
-  setBookmarkList,
+  // onRemove,
+  // onEdit,
+  // bookmarkList,
+  // setBookmarkList,
 }) => {
   const [checked, setChecked] = useState(done);
   const [isEdit, setIsEdit] = useState(false);
   const toggleIsEdit = () => setIsEdit(!isEdit);
   const [localTitle, setLocalTitle] = useState(title);
+  const { onRemove, onEdit, bookmarkList, setBookmarkList } = useTodoStore();
 
   const handleClickRemove = () => {
     onRemove(id);
@@ -36,27 +38,14 @@ const TodoItem = ({
     }
 
     // setChecked((checked) => !checked);
-    console.log(checked);
+    // console.log(checked);
     //작동확인
     // onEdit(id, localTitle, checked);
   };
 
-  // const addBookmark = () => {
-  //   let newState = [];
-  //   console.log(bookmarkList);
-  //   bookmarkList
-  //     ? !bookmarkList.includes(title)
-  //       ? (newState = [...bookmarkList, title])
-  //       : (newState = bookmarkList)
-  //     : (newState = [title]);
-  //   localStorage.setItem("title", JSON.stringify(newState));
-  //   setBookmarkList(newState);
-  // };
-
   const addBookmark = () => {
     let newState = "";
     const listString = bookmarkList.join(",");
-    console.log(bookmarkList.length);
     bookmarkList.length !== 0
       ? !bookmarkList.includes(title.trim())
         ? (newState = listString + "," + title.trim())
@@ -80,7 +69,6 @@ const TodoItem = ({
                   toggleIsEdit={toggleIsEdit}
                   localTitle={localTitle}
                   setLocalTitle={setLocalTitle}
-                  createdAt={createdAt}
                   updatedAt={updatedAt}
                   done={done}
                   handleCheck={handleCheck}
