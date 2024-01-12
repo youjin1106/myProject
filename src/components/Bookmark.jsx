@@ -17,8 +17,8 @@ const Bookmark = ({ toggleBookmark }) => {
     <>
       {createPortal(
         <div className="list-modal-background" onClick={closeToggle}>
-          <div className="list-modal">
-            <span>즐겨찾기 목록</span>
+          <div className="list-modal bookmark">
+            <div className="list-modal__bookmark-title">즐겨찾기 목록</div>
             <ul>
               {bookmarkList ? (
                 bookmarkList.map((it, idx) => (

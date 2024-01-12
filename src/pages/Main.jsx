@@ -3,6 +3,7 @@ import TodoList from "../components/TodoList";
 import TodoEditor from "../components/TodoEditor";
 import Bookmark from "../components/Bookmark";
 import { useTodoStore } from "../store/Store";
+import React from "react";
 
 const MainPage = () => {
   const { getTodoList } = useTodoStore();
@@ -30,4 +31,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default React.memo(MainPage);

@@ -1,8 +1,9 @@
 import { ReactSortable } from "react-sortablejs";
 import TodoItem from "./TodoItem";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Skeleton from "./Skeleton";
 import { useTodoStore } from "../store/Store";
+import React from "react";
 
 const TodoList = () => {
   const { todoList, setTodoList, onRemoveCheckedAll } = useTodoStore();
@@ -58,4 +59,4 @@ const TodoList = () => {
   );
 };
 
-export default TodoList;
+export default React.memo(TodoList);

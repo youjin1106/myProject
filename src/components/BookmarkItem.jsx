@@ -1,3 +1,4 @@
+import React from "react";
 import { useTodoStore } from "../store/Store";
 
 const BookmarkItem = ({ title }) => {
@@ -12,12 +13,14 @@ const BookmarkItem = ({ title }) => {
   };
 
   return (
-    <div>
-      <span>{title}</span>
-      <button onClick={addTodoItem}>추가</button>
-      <button onClick={deleteBookmark}>삭제</button>
+    <div className="bookmark-list">
+      <span className="bookmark-list__item-title">{title}</span>
+      <div className="bookmark-list__btn">
+        <button onClick={addTodoItem}>추가</button>
+        <button onClick={deleteBookmark}>삭제</button>
+      </div>
     </div>
   );
 };
 
-export default BookmarkItem;
+export default React.memo(BookmarkItem);

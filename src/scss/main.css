@@ -108,6 +108,15 @@
   outline: none;
 }
 
+.bookmark-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bookmark-list__item-title {
+  font-size: 24px;
+}
+
 @media all and (min-width: 480px) and (max-width: 767px) {
   .main-page__line-style {
     flex-direction: column;
@@ -236,4 +245,12 @@ header div a {
 }
 .list-modal__info-area__textarea:focus {
   outline: none;
+}
+.list-modal__bookmark-title {
+  padding-bottom: 20px;
+}
+
+.bookmark {
+  width: 320px;
+  height: 300px;
 }/*# sourceMappingURL=main.css.map */

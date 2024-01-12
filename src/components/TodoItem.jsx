@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Modal from "./Modal";
 import { useTodoStore } from "../store/Store";
 
@@ -73,4 +73,4 @@ const TodoItem = ({ id, title, updatedAt, done }) => {
   );
 };
 
-export default TodoItem;
+export default React.memo(TodoItem);
