@@ -3,18 +3,12 @@ import { useTodoStore } from "../store/Store";
 import BookmarkItem from "./BookmarkItem";
 import { createPortal } from "react-dom";
 
-const Bookmark = ({
-  // bookmarkList,
-  // setBookmarkList,
-  // onCreate,
-  toggleBookmark,
-}) => {
+const Bookmark = ({ toggleBookmark }) => {
   const { onCreate, bookmarkList, getBookmarkList } = useTodoStore();
   const closeToggle = (e) => {
     if (e.target.className === "list-modal-background") toggleBookmark();
   };
 
-  //0111추가
   useEffect(() => {
     getBookmarkList();
   }, []);
@@ -28,13 +22,7 @@ const Bookmark = ({
             <ul>
               {bookmarkList ? (
                 bookmarkList.map((it, idx) => (
-                  <BookmarkItem
-                    key={idx}
-                    title={it}
-                    onCreate={onCreate}
-                    // bookmarkList={bookmarkList}
-                    // setBookmarkList={setBookmarkList}
-                  />
+                  <BookmarkItem key={idx} title={it} onCreate={onCreate} />
                 ))
               ) : (
                 <span>추가한 내용이 없습니다</span>

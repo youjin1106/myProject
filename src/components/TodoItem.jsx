@@ -2,17 +2,7 @@ import { useState } from "react";
 import Modal from "./Modal";
 import { useTodoStore } from "../store/Store";
 
-const TodoItem = ({
-  id,
-  title,
-  // createdAt,
-  updatedAt,
-  done,
-  // onRemove,
-  // onEdit,
-  // bookmarkList,
-  // setBookmarkList,
-}) => {
+const TodoItem = ({ id, title, updatedAt, done }) => {
   const [checked, setChecked] = useState(done);
   const [isEdit, setIsEdit] = useState(false);
   const toggleIsEdit = () => setIsEdit(!isEdit);
@@ -25,7 +15,6 @@ const TodoItem = ({
 
   const handleClickEdit = () => {
     onEdit(id, localTitle, checked);
-    //수정후 수정중 해제
     toggleIsEdit();
   };
 
@@ -36,11 +25,6 @@ const TodoItem = ({
     } else {
       onEdit(id, localTitle, false);
     }
-
-    // setChecked((checked) => !checked);
-    // console.log(checked);
-    //작동확인
-    // onEdit(id, localTitle, checked);
   };
 
   const addBookmark = () => {
@@ -51,7 +35,6 @@ const TodoItem = ({
         ? (newState = listString + "," + title.trim())
         : (newState = listString)
       : (newState = title.trim());
-    console.log(bookmarkList.length);
     localStorage.setItem("title", JSON.stringify(newState));
     const newArr = newState.split(",");
     setBookmarkList(newArr);

@@ -5,7 +5,6 @@ const Modal = ({
   toggleIsEdit,
   localTitle,
   setLocalTitle,
-  createdAt,
   updatedAt,
   done,
   handleCheck,
